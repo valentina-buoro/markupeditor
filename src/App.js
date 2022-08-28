@@ -14,6 +14,12 @@ const EditorContainer = styled.div`
 width: 100%;
 height: 100%;
 display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 1rem 2rem;
+padding: 2rem;
+
 `
 
 function App() {
