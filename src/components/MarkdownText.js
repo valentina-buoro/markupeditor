@@ -23,6 +23,7 @@ const Title = styled.div`
   text-align: center;
   font-family: monospace;
   font-weight: bold;
+  color: rgb(255,195,0);
 
   @media only screen and (min-width:992px){
     font-size:3rem;
@@ -34,8 +35,9 @@ const TextArea = styled.textarea`
   height: 100%;
   resize: none;
   font-size: 1.7rem;
-  border: 0.15rem solid black;
+  border: none;
   background-color: white;
+  padding: 0 1.5rem;
 `;
 const ResultArea = styled.div`
   width: 100%;
@@ -44,13 +46,14 @@ const ResultArea = styled.div`
   font-size: 1.7rem;
   border: 0.15rem solid black;
   border-radius: 0.5rem;
-  background-color: rgb(241, 241, 115);;
+  background-color: rgb(0,53,102);
+  padding: 0 1.5rem;
 `;
 const Button = styled.button`
   padding: 1rem 2.2rem;
   margin: 4rem 2rem;
   border-radius: 1rem;
-  background-color: black;
+  background-color: rgb(0,8,20);
   font-size: 1.5rem;
   color: white;
 `
