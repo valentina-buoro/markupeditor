@@ -1,6 +1,8 @@
 import React from "react";
 import { Remarkable } from "remarkable";
 import { useState} from "react";
+import { jsPDF } from 'jspdf';
+import html2canvas from "html2canvas";
 
 import styled from "styled-components";
 
@@ -41,7 +43,7 @@ const TextArea = styled.textarea`
 `;
 const ResultArea = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   border: none;
   font-size: 1.7rem;
   border: 0.15rem solid black;
@@ -60,6 +62,16 @@ const Button = styled.button`
 const md = new Remarkable()
 function MarkdownText() {
   const [text, setText] = useState('');   
+  const download = ()=>{
+    const input = document.getElementById('divToPrint')
+    html2canvas(input)
+    .then((canvas)=>{
+        const imgData= canvas.toDataURL('image.png')
+        const pdf = new jsPDF()
+        pdf.addImage(imgData, 'JPEG', 0,0)
+        pdf.save('download.pdf')
+    })
+  }
   return (
     <>
       <Container>
@@ -71,11 +83,11 @@ function MarkdownText() {
       </Container>
       <Container>
         <Title>Result</Title>
-        <ResultArea dangerouslySetInnerHTML={{__html: md.render(text)}}>
+        <ResultArea dangerouslySetInnerHTML={{__html: md.render(text)}} id='divToPrint'>
 
         </ResultArea>
       </Container>
-      <Button onClick={()=>setText(true)}> Download </Button>
+      <Button onClick={download}> Download </Button>
     </>
   );
 }
