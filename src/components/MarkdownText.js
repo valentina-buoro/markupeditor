@@ -115,6 +115,8 @@ const Button = styled.div`
 `;
 const Nav = styled.nav`
   margin: 1rem;
+  height: 3rem;
+  margin-top: 3rem;
   margin-bottom: 0;
   padding: 1rem;
   display: flex;
