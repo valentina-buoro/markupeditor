@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const EditorContainer = styled.div`
   width: 110%;
-  height: 80vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,8 +27,8 @@ const EditorContainer = styled.div`
 const Container = styled.div`
   width: 100%;
   min-height: 20rem;
-  margin: 2rem 4rem;
-  padding: 1.3rem;
+  margin: 1rem 2rem;
+  padding: 1rem;
   @media only screen and (min-width: 992px) {
     width: 95%;
     min-height: 80vh;
@@ -41,8 +41,8 @@ const Container = styled.div`
 const RContainer = styled.div`
   width: 100%;
   min-height: 20rem;
-  margin: 2rem 4rem;
-  padding: 1.3rem;
+  margin: 2rem 2rem;
+  padding: 1rem;
   @media only screen and (min-width: 992px) {
     width: 95%;
     min-height: 80vh;
@@ -56,6 +56,7 @@ const RContainer = styled.div`
 const Title = styled.div`
   font-size: 2.2rem;
   margin-bottom: 1rem;
+  margin-top:0;
   padding: 0.8rem 0;
   border-bottom: 0.1rem solid white;
   text-align: center;
@@ -97,7 +98,7 @@ const Button = styled.div`
   width: 12rem;
   padding: 1.4rem; //2.2rem;
   display: inline-block;
-  margin: 0.8rem;
+  margin-left: 3rem;
   text-align: center;
   border-radius: 1rem;
   text-decoration: none;
@@ -114,7 +115,8 @@ const Button = styled.div`
 `;
 const Nav = styled.nav`
   margin: 1rem;
-  padding: 1.6rem;
+  margin-bottom: 0;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
