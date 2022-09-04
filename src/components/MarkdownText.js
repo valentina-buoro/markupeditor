@@ -116,7 +116,7 @@ const Button = styled.div`
 const Nav = styled.nav`
   margin: 1rem;
   height: 3rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
   margin-bottom: 0;
   padding: 1rem;
   display: flex;
@@ -134,6 +134,9 @@ const Nav = styled.nav`
 
   @media only screen and (min-width: 992px) {
     justify-content: space-between;
+    height: 5rem;
+    
+    margin-bottom: 1rem;
     h1{
       font-size:4rem;
     }
