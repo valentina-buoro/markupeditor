@@ -32,7 +32,7 @@ const Container = styled.div`
   @media only screen and (min-width: 992px) {
     width: 95%;
     min-height: 80vh;
-    background-color: rgb(0, 8, 20);
+    //background-color: rgb(0, 8, 20);
     margin: 1rem;
     margin-right: 0;
     width: 100%;
@@ -41,8 +41,10 @@ const Container = styled.div`
 const RContainer = styled.div`
   width: 100%;
   min-height: 20rem;
-  margin: 2rem 2rem;
+  margin: 4rem 2rem;
   padding: 1rem;
+  border-top-right-radius: 3.4rem;
+  border-bottom-right-radius:3.4rem;
   @media only screen and (min-width: 992px) {
     width: 95%;
     min-height: 80vh;
@@ -50,7 +52,7 @@ const RContainer = styled.div`
     margin-left: 0;
     margin-right: 0;
     padding-right: 0;
-    background-color: rgb(0, 53, 102);
+    //background-color: rgb(0, 29,58);
   }
 `;
 const Title = styled.div`
@@ -58,11 +60,11 @@ const Title = styled.div`
   margin-bottom: 1rem;
   margin-top:0;
   padding: 0.8rem 0;
-  border-bottom: 0.1rem solid white;
+  border-bottom: 0.1rem solid black;
   text-align: center;
-  font-family: monospace;
-  font-weight: bold;
-  color: white;
+ 
+  font-weight: 600;
+  color: rgb(0, 8, 20);
 
   @media only screen and (min-width: 992px) {
     font-size: 3rem;
@@ -73,21 +75,29 @@ const TextArea = styled.textarea`
   width: 100%;
   min-height: 100%;
   font-size: 1.7rem;
+  font-family: 'Inter';
   resize: none;
-  padding: 0 1.5rem;
+  padding: 0.8rem 1.5rem;
   border: none;
+  outline: none;
+  border-radius: 1.4rem;
   color: white;
   background-color: rgb(0, 8, 20);
   @media only screen and (min-width: 992px) {
     font-size: 2rem;
     min-height: 60vh;
+    border: none;
+    outline: none;
   }
 `;
 const ResultArea = styled.div`
+
   width: 100%;
   min-height: 100%;
   resize: none;
-  padding: 0 1.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.7rem;
+  font-family: 'Inter';
   //background-color: rgb(0, 53, 102);
   @media only screen and (min-width: 992px) {
     font-size: 2rem;
@@ -103,7 +113,8 @@ const Button = styled.div`
   border-radius: 1rem;
   text-decoration: none;
   background-color: rgb(0, 8, 20);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight:400;
   color: white;
   text-transform: uppercase;
   @media only screen and (min-width: 992px) {
@@ -124,11 +135,11 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   h1 {
-    color: white;
+    color: rgb(0, 8, 20);
     text-align: center;
     display: inline-block;
-    font-family: cursive;
     font-size: 2.5rem;
+    font-weight: 800;
     margin-right:5rem;
   }
 
