@@ -7,19 +7,19 @@ import styled from "styled-components";
 
 const EditorContainer = styled.div`
   width: 110%;
-  height: 90vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 7rem;
+  margin-top: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
   padding: 2rem;
   @media only screen and (min-width: 992px) {
     flex-direction: row;
-    margin: 0;
+    margin-top:7rem;
     padding: 7rem;
     margin-bottom: 4rem;
   }
@@ -27,10 +27,10 @@ const EditorContainer = styled.div`
 const Container = styled.div`
   width: 100%;
   min-height: 20rem;
-  margin: 1rem 2rem;
+  margin: 3rem 2rem;
   padding: 1rem;
   @media only screen and (min-width: 992px) {
-    width: 95%;
+    
     min-height: 80vh;
     //background-color: rgb(0, 8, 20);
     margin: 1rem;
@@ -45,9 +45,10 @@ const RContainer = styled.div`
   padding: 1rem;
   border-top-right-radius: 3.4rem;
   border-bottom-right-radius:3.4rem;
+  overflow: hidden;
   @media only screen and (min-width: 992px) {
-    width: 95%;
-    min-height: 80vh;
+    width: 100%;
+    height: 80vh;
     margin: 1rem;
     margin-left: 0;
     margin-right: 0;
@@ -93,11 +94,12 @@ const TextArea = styled.textarea`
 const ResultArea = styled.div`
 
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   resize: none;
   padding: 0.8rem 1.5rem;
   font-size: 1.7rem;
   font-family: 'Inter';
+  
   //background-color: rgb(0, 53, 102);
   @media only screen and (min-width: 992px) {
     font-size: 2rem;
@@ -106,9 +108,10 @@ const ResultArea = styled.div`
 `;
 const Button = styled.div`
   width: 12rem;
-  padding: 1.4rem; //2.2rem;
+  padding: 1rem; //2.2rem;
   display: inline-block;
-  margin-left: 3rem;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   border-radius: 1rem;
   text-decoration: none;
@@ -117,37 +120,58 @@ const Button = styled.div`
   font-weight:400;
   color: white;
   text-transform: uppercase;
+  transform:translate(10rem);
+  animation: buttonAnimation 2s ease-in;
   @media only screen and (min-width: 992px) {
     width: 18rem;
-    margin: 1rem;
     font-size: 1.7rem;
+    transform:translate(40rem, 2rem);
     //: translate(55rem, 0);
   }
 `;
 const Nav = styled.nav`
-  margin: 1rem;
-  height: 3rem;
-  margin-top: 4rem;
-  margin-bottom: 0;
+  margin: 1rem 1rem;
   padding: 1rem;
+  text-align: start;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  @keyframes titleAnimation {
+    0%{
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes buttonAnimation {
+    0%{
+        opacity: 0;
+        transform: translateX(200px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateX(20px);
+    }
+  }
   h1 {
     color: rgb(0, 8, 20);
     text-align: center;
     display: inline-block;
     font-size: 2.5rem;
     font-weight: 800;
-    margin-right:5rem;
+    animation: titleAnimation 2s ease-out;
+    //transform:translateY(-3rem);
   }
 
   @media only screen and (min-width: 992px) {
     justify-content: space-between;
-    height: 5rem;
-    
-    margin-bottom: 1rem;
+    height: 4rem;
+    margin: 2rem;
     h1{
       font-size:4rem;
     }
@@ -169,7 +193,7 @@ function MarkdownText() {
     <>
       <Nav>
         <h1>Teenz Markdown</h1>
-        <Button onClick={download}>download result</Button>
+        <Button disable={!text} onClick={download}>download result</Button>
       </Nav>
       <EditorContainer>
         <Container>
@@ -184,9 +208,11 @@ function MarkdownText() {
           <ResultArea
             dangerouslySetInnerHTML={{ __html: md.render(text) }}
             id="divToPrint"
-          ></ResultArea>
+          >
+          </ResultArea>
         </RContainer>
       </EditorContainer>
+      
     </>
   );
 }
