@@ -98,8 +98,6 @@ const Button = styled.div`
   width: 12rem;
   padding: 0.7rem;
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   border-radius: 1rem;
   text-decoration: none;
@@ -108,12 +106,10 @@ const Button = styled.div`
   font-weight: 400;
   color: white;
   text-transform: uppercase;
-  transform: translate(5rem);
   animation: buttonAnimation 2s ease-in;
   @media only screen and (min-width: 992px) {
     width: 18rem;
     font-size: 1.7rem;
-    transform: translate(36rem, 2rem);
   }
 `;
 const Nav = styled.nav`
@@ -176,7 +172,7 @@ function MarkdownText() {
       var heightLeft = imgHeight;
       const imgData = canvas.toDataURL("image.png");
       const pdf = new jsPDF("p", "mm");
-      var position = 0; //20;
+      var position = 0; 
       pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
       while (heightLeft >= 0) {
