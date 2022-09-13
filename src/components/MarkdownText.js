@@ -22,7 +22,7 @@ const EditorContainer = styled.div`
 `;
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   margin: 3rem 2rem;
   padding: 1rem;
   @media only screen and (min-width: 992px) {
@@ -34,7 +34,7 @@ const Container = styled.div`
 `;
 const RContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   margin: 4rem 2rem;
   padding: 1rem;
   border-top-right-radius: 3.4rem;
