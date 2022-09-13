@@ -117,7 +117,7 @@ const Button = styled.div`
     transform:translate(36rem, 2rem);}
 `
 const Nav = styled.nav`
-  margin: 1rem 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   text-align: start;
   display: flex;
