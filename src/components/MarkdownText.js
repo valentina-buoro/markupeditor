@@ -38,10 +38,10 @@ const RContainer = styled.div`
   margin: 4rem 2rem;
   padding: 1rem;
   border-top-right-radius: 3.4rem;
-  border-bottom-right-radius:3.4rem;
+  border-bottom-right-radius: 3.4rem;
   @media only screen and (min-width: 992px) {
     width: 100%;
-    min-height:100%;
+    min-height: 100%;
     margin: 1rem;
     margin-left: 0;
     margin-right: 0;
@@ -51,11 +51,11 @@ const RContainer = styled.div`
 const Title = styled.div`
   font-size: 2.2rem;
   margin-bottom: 1rem;
-  margin-top:0;
+  margin-top: 0;
   padding: 0.8rem 0;
   border-bottom: 0.1rem solid black;
   text-align: center;
- 
+
   font-weight: 600;
   color: rgb(0, 8, 20);
 
@@ -68,7 +68,7 @@ const TextArea = styled.textarea`
   width: 100%;
   min-height: 100%;
   font-size: 1.7rem;
-  font-family: 'Inter';
+  font-family: "Inter";
   resize: none;
   padding: 0.8rem 1.5rem;
   border: none;
@@ -84,13 +84,12 @@ const TextArea = styled.textarea`
   }
 `;
 const ResultArea = styled.div`
-
   width: 100%;
-  height: 100%;
+  height: auto;
   resize: none;
   padding: 0.8rem 1.5rem;
   font-size: 1.7rem;
-  font-family: 'Inter';
+  font-family: "Inter";
   @media only screen and (min-width: 992px) {
     font-size: 2rem;
   }
@@ -106,16 +105,17 @@ const Button = styled.div`
   text-decoration: none;
   background-color: rgb(0, 8, 20);
   font-size: 1.4rem;
-  font-weight:400;
+  font-weight: 400;
   color: white;
   text-transform: uppercase;
-  transform:translate(5rem);
+  transform: translate(5rem);
   animation: buttonAnimation 2s ease-in;
   @media only screen and (min-width: 992px) {
     width: 18rem;
     font-size: 1.7rem;
-    transform:translate(36rem, 2rem);}
-`
+    transform: translate(36rem, 2rem);
+  }
+`;
 const Nav = styled.nav`
   margin: 1rem 0;
   padding: 1rem;
@@ -125,22 +125,22 @@ const Nav = styled.nav`
   justify-content: space-between;
 
   @keyframes titleAnimation {
-    0%{
-        opacity: 0;
-        transform: translateX(-120px);
+    0% {
+      opacity: 0;
+      transform: translateX(-120px);
     }
-    100%{
+    100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
   @keyframes buttonAnimation {
-    0%{
-        opacity: 0;
-        transform: translateX(200px);
+    0% {
+      opacity: 0;
+      transform: translateX(200px);
     }
-    100%{
+    100% {
       opacity: 1;
       transform: translateX(20px);
     }
@@ -159,8 +159,8 @@ const Nav = styled.nav`
     justify-content: space-between;
     height: 4rem;
     margin: 2rem;
-    h1{
-      font-size:4rem;
+    h1 {
+      font-size: 4rem;
     }
   }
 `;
@@ -170,17 +170,32 @@ function MarkdownText() {
   const download = () => {
     const input = document.getElementById("divToPrint");
     html2canvas(input).then((canvas) => {
+      var imgWidth = 180;
+      var pageHeight = 295;
+      var imgHeight = (canvas.height * imgWidth) / canvas.width;
+      var heightLeft = imgHeight;
       const imgData = canvas.toDataURL("image.png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
+      const pdf = new jsPDF("p", "mm");
+      var position = 0; //20;
+      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
       pdf.save("download.pdf");
     });
+    
   };
   return (
     <>
       <Nav>
         <h1>Teenz Markdown</h1>
-        <Button disable={!text} onClick={download}>download result</Button>
+        <Button disable={!text} onClick={download}>
+          download result
+        </Button>
       </Nav>
       <EditorContainer>
         <Container>
@@ -188,7 +203,7 @@ function MarkdownText() {
           <TextArea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder= 'Type something...'
+            placeholder="Type something..."
           ></TextArea>
         </Container>
         <RContainer>
@@ -196,11 +211,9 @@ function MarkdownText() {
           <ResultArea
             dangerouslySetInnerHTML={{ __html: md.render(text) }}
             id="divToPrint"
-          >
-          </ResultArea>
+          ></ResultArea>
         </RContainer>
       </EditorContainer>
-      
     </>
   );
 }
