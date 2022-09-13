@@ -166,7 +166,7 @@ function MarkdownText() {
   const download = () => {
     const input = document.getElementById("divToPrint");
     html2canvas(input).then((canvas) => {
-      var imgWidth = 180;
+      var imgWidth = 210;
       var pageHeight = 295;
       var imgHeight = (canvas.height * imgWidth) / canvas.width;
       var heightLeft = imgHeight;
