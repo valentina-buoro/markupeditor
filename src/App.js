@@ -1,29 +1,14 @@
-import React from 'react'
-import MarkdownText from './components/MarkdownText'
+import React from "react";
+import MarkdownText from "./components/MarkdownText";
 
-import './index.css'
-import styled from 'styled-components'
-
-const AppContainer = styled.div`
-width:90%;
-height:100%;
-display:flex;
-flex-direction: column;
-
-`
-
-
+import "./index.css";
 
 function App() {
   return (
-    <AppContainer>
-      
-      <MarkdownText/>
-      
-      
-      
-    </AppContainer>
-  )
+    <>
+      <MarkdownText />
+    </>
+  );
 }
 
-export default App
+export default App;

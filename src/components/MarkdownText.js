@@ -6,33 +6,27 @@ import html2canvas from "html2canvas";
 import styled from "styled-components";
 
 const EditorContainer = styled.div`
-  width: 110%;
-  height: 70vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 4rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 3rem;
+  justify-content: flex-start;
+  margin: 1rem auto;
   padding: 2rem;
   @media only screen and (min-width: 992px) {
     flex-direction: row;
-    margin-top:7rem;
-    padding: 7rem;
+    padding: 4rem;
     margin-bottom: 4rem;
   }
 `;
 const Container = styled.div`
   width: 100%;
-  min-height: 20rem;
+  height: 100vh;
   margin: 3rem 2rem;
   padding: 1rem;
   @media only screen and (min-width: 992px) {
-    
-    min-height: 80vh;
-    //background-color: rgb(0, 8, 20);
+    min-height: 100%;
     margin: 1rem;
     margin-right: 0;
     width: 100%;
@@ -40,20 +34,18 @@ const Container = styled.div`
 `;
 const RContainer = styled.div`
   width: 100%;
-  min-height: 20rem;
+  height: 100vh;
   margin: 4rem 2rem;
   padding: 1rem;
   border-top-right-radius: 3.4rem;
   border-bottom-right-radius:3.4rem;
-  overflow: hidden;
   @media only screen and (min-width: 992px) {
     width: 100%;
-    height: 80vh;
+    min-height:100%;
     margin: 1rem;
     margin-left: 0;
     margin-right: 0;
     padding-right: 0;
-    //background-color: rgb(0, 29,58);
   }
 `;
 const Title = styled.div`
@@ -99,16 +91,13 @@ const ResultArea = styled.div`
   padding: 0.8rem 1.5rem;
   font-size: 1.7rem;
   font-family: 'Inter';
-  
-  //background-color: rgb(0, 53, 102);
   @media only screen and (min-width: 992px) {
     font-size: 2rem;
-    //background-color: rgb(0, 53, 102);
   }
 `;
 const Button = styled.div`
   width: 12rem;
-  padding: 1rem; //2.2rem;
+  padding: 1rem;
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
@@ -125,10 +114,8 @@ const Button = styled.div`
   @media only screen and (min-width: 992px) {
     width: 18rem;
     font-size: 1.7rem;
-    transform:translate(40rem, 2rem);
-    //: translate(55rem, 0);
-  }
-`;
+    transform:translate(36rem, 2rem);}
+`
 const Nav = styled.nav`
   margin: 1rem 1rem;
   padding: 1rem;
@@ -197,10 +184,11 @@ function MarkdownText() {
       </Nav>
       <EditorContainer>
         <Container>
-          <Title>Markdown</Title>
+          <Title>Type Here</Title>
           <TextArea
             value={text}
             onChange={(e) => setText(e.target.value)}
+            placeholder= 'Type something...'
           ></TextArea>
         </Container>
         <RContainer>
