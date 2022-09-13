@@ -106,7 +106,7 @@ const Button = styled.div`
   font-weight: 400;
   color: white;
   text-transform: uppercase;
-  animation: buttonAnimation 2s ease-in;
+  animation: buttonAnimation 1s ease-in;
   @media only screen and (min-width: 992px) {
     width: 18rem;
     font-size: 1.7rem;
@@ -147,7 +147,7 @@ const Nav = styled.nav`
     display: inline-block;
     font-size: 2.5rem;
     font-weight: 800;
-    animation: titleAnimation 2s ease-out;
+    animation: titleAnimation 1s ease-out;
     //transform:translateY(-3rem);
   }
 
