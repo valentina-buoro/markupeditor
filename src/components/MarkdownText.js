@@ -109,7 +109,7 @@ const Button = styled.div`
   font-weight:400;
   color: white;
   text-transform: uppercase;
-  transform:translate(10rem);
+  transform:translate(7rem);
   animation: buttonAnimation 2s ease-in;
   @media only screen and (min-width: 992px) {
     width: 18rem;
