@@ -97,7 +97,7 @@ const ResultArea = styled.div`
 `;
 const Button = styled.div`
   width: 12rem;
-  padding: 1rem;
+  padding: 0.7rem;
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
@@ -109,7 +109,7 @@ const Button = styled.div`
   font-weight:400;
   color: white;
   text-transform: uppercase;
-  transform:translate(7rem);
+  transform:translate(5rem);
   animation: buttonAnimation 2s ease-in;
   @media only screen and (min-width: 992px) {
     width: 18rem;
